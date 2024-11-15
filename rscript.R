@@ -167,7 +167,30 @@ ggplot(ipl_data, aes(x = season, y = target_overs, fill = season)) +
   theme_minimal() +
   theme(legend.position = "none")
 
-#16.
+
+#16.What is the distribution of runs scored in matches (target_runs)?
+
+# Histogram for distribution of runs scored in matches
+ggplot(IPL, aes(x = target_runs)) +
+  geom_histogram(binwidth = 10, fill = "forestgreen", color = "black") +
+  labs(title = "Distribution of Runs Scored in Matches",
+       x = "Target Runs",
+       y = "Frequency") +
+  theme_minimal()
+
+#17.What is the relationship between the season and the occurrence of super overs?
+# Filter for matches with super overs data
+superover_season_table <- table(IPL$season, IPL$super_over)
+
+# Mosaic plot
+mosaicplot(superover_season_table,
+           main = "Season vs Super Over Occurrence",
+           xlab = "Season",
+           ylab = "Super Over (Yes/No)",
+           color = TRUE,
+           las = 2,
+           cex.axis = 0.8)  # Adjust axis text size for readability
+
 
 
 
